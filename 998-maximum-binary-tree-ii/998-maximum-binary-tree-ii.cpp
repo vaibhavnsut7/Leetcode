@@ -13,15 +13,15 @@ class Solution {
 public:
     TreeNode* insertIntoMaxTree(TreeNode* root, int val) {
         if (root==NULL){
-            return new TreeNode (val);
+            return new TreeNode(val);
         }
+        
         if (val>root->val){
-            TreeNode *n=new TreeNode(val);
-            n->left=root;
-            return n;
+            TreeNode *curr=new TreeNode(val);
+            curr->left=root;
+            return curr;
         }
         root->right=insertIntoMaxTree(root->right,val);
         return root;
-
     }
 };
